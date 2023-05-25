@@ -77,6 +77,10 @@ int main(void) {
         imprimirCancion(nuevaCancion,cantC);
         break;
         case 2:
+        if(cantC == 700) {
+            cout << "Llego al maximo de canciones que puede almacenar" << endl;
+            break;
+        }
         cantC = ingresarCancion(nuevaCancion,cantC);
         break;
         case 3:
