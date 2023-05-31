@@ -2,11 +2,11 @@
 using namespace std;
 
 struct Duracion {
-    int minutos;
+    int minutos; //estructura para la duracion de la cancion
     int segundos;
 };
 struct Cancion {
-    string artista;
+    string artista; //estructura para los datos de la cancion
     string titulo;
     Duracion duracion;
     double size;
@@ -14,7 +14,8 @@ struct Cancion {
 
 void ordenar(Cancion nuevaCancion[100], int cantC) {
     for(int i = 0; i < cantC; i++) {
-        for(int j = 0; j < cantC-1; j++) {
+        for(int j = 0; j < cantC-1; j++) { //esta funcion se encarga de ordenar las canciones segun su nommbre. Basicamente compara todas
+            //las canciones y si la inicial de una es menor que la otra, se ordena
             if(nuevaCancion[j].titulo > nuevaCancion[j+1].titulo) {
                 Cancion temp = nuevaCancion[j];
                 nuevaCancion[j] = nuevaCancion[j+1];
@@ -33,7 +34,10 @@ void modificarCancion(Cancion nuevaCancion[100], int cantC) {
     cout << "De las "<< cantC << " canciones,cual modificar?" << endl;
     cin >> choice;
     if(choice > 0 && choice <= cantC) {
-        cout << "Ingrese el nuevo nombre del artista(o enter para no modificarlo)" << endl;
+        cout << "Ingrese el nuevo nombre del artista(o enter para no modificarlo)" << endl; //esta funcion se encarga de poder modificar
+        //las canciones existentes. Se le pedira al usuario ingresar los nuevos valores y, si no quiere cambiar ni el nombre de la cancion
+        //o del artista puede dejar un espacio en blanco y en el caso de la duracion y del tamanño solo tiene que ingresar -1. Luego al final
+        //se ingresan los nuevos datos a la cancion elegida
         cin.ignore();
         getline(cin,musico);
         if(musico.empty()) musico = nuevaCancion[choice-1].artista;
@@ -69,7 +73,9 @@ int borrarcancion(Cancion nuevaCancion[100], int cantC) {
             nuevaCancion[i] = nuevaCancion[i+1]; 
         }
         cout << "Borrado con exito" << endl;
-        cantC--;
+        cantC--; //esta funcion se encarga de borrar la cancion que elija el usuario. Para poder borrar la cancion, se le asigna a la posicion
+        //de la cancion elegida los valores de la siguiente y asi hasta que no queden mas canciones que acomodar. Por ultimo el total de canciones
+        //disminuye un espacio
     }
     else cout << "Elija una cancion existente" << endl;
     return cantC;
@@ -80,7 +86,7 @@ void imprimirCancion(Cancion nuevaCancion[100], int cantC) {
     for(int i = 0; i < cantC; i++) {
         cout << "Cancion numero " << i+1 << endl;
         cout << "\tArtista: " << nuevaCancion[i].artista << endl;
-        cout << "\tTitulo: " << nuevaCancion[i].titulo << endl;
+        cout << "\tTitulo: " << nuevaCancion[i].titulo << endl; //funcion para imprimir la estructura de las canciones ingresadas
         if(nuevaCancion[i].duracion.segundos >= 0 && nuevaCancion[i].duracion.segundos < 10) {
             cout << "\tDuracion: " << nuevaCancion[i].duracion.minutos << ":0" << nuevaCancion[i].duracion.segundos << endl;
         }
@@ -96,7 +102,8 @@ int ingresarCancion(Cancion nuevaCancion[100], int cont, Duracion nuevaDuracion[
     double size;
     char n = 164;
     while(1) {
-    cout << "Ingrese el nombre del artista" << endl;
+    cout << "Ingrese el nombre del artista" << endl; //esta funcion se encarga de pedirle al usuario ingresar una cancion. Le pide el artista y el nombre de 
+        //la cancion, que si los deja en blanco es avisado de ello, y luego la duracion en minutos y segundos y su tamaño
     cin.ignore();
     getline(cin,musico);
     if(musico.empty()) {
@@ -141,7 +148,7 @@ int ingresarCancion(Cancion nuevaCancion[100], int cont, Duracion nuevaDuracion[
     Cancion cancion = {musico,nombreC,duracion,size};
     nuevaCancion[cont] = cancion;
     cont++;
-    cin.ignore();
+    cin.ignore(); //esta parte guarda los valores ingresados en la estructura de canciones
     return cont;
 }
 
@@ -149,7 +156,9 @@ void buscarcancion(Cancion nuevaCancion[100], int cantC) {
     string choice;
     bool encontrado = 0;
     char n = 164;
-    cout << "Que cancion quiere buscar?" << endl;
+    cout << "Que cancion quiere buscar?" << endl; //esta funcion se encarga de buscar una cancion que su titulo o artista tenga una palabra
+    //ingresada por el usuario. Se encarga de usar la funcion find() que significa que si encuentra la palabra en el artista o en el titulo
+    //se muestra dicha cancion
     cin >> choice;
     for(int i = 0; i < cantC; i++) {
         if(nuevaCancion[i].artista.find(choice) != string::npos || nuevaCancion[i].titulo.find(choice) != string::npos) {
@@ -172,7 +181,7 @@ int main(void) {
     cout << "Bienvenido a Spotify, que quiere hacer?" << endl;
     cout << "1)Ver las canciones" << endl;
     cout << "2)Agregar una cancion" << endl;
-    cout << "3)Buscar una cancion" << endl;
+    cout << "3)Buscar una cancion" << endl; //esta parte se encarga de mostrarle al usuario opciones para hacer distintas cosas con las canciones
     cout << "4)Borrar una cancion" << endl;
     cout << "5)Modificar una cancion" << endl;
     cout << "6)Salir" << endl;
