@@ -1,8 +1,3 @@
-//Realizar un programa que pida datos de 8 personas: nombre, día de nacimiento, mes de nacimiento, y 
-//año de nacimiento (que se deben almacenar en una tabla de structs). 
-//Después deberá repetir lo siguiente: preguntar un número de mes y 
-//mostrar en pantalla los datos de las personas que cumplan los años durante ese mes. 
-//Terminará de repetirse cuando se teclee 0 como número de mes.
 
 #include <iostream>
 
@@ -11,7 +6,7 @@ using namespace std;
 struct Cumples {
     string nombre;
     int dia;
-    int mes;
+    int mes; //estructura para las personas
     int year;
 };
 
@@ -20,7 +15,8 @@ void initialize(Cumples nuevoCumple[8]) {
     int dia,mes,year;
     char n = 164;
     for(int i = 0; i < 8; i++) {
-        cout << "Ingrese su nombre" << endl;
+        cout << "Ingrese su nombre" << endl;  //esta funcion se encarga de pedirle al ususario que ingrese su nombre y su fecha de cumpleaños
+        //y, si algo no esta coherente se le avisa respecto a ese problema 
         getline(cin,nombre);
         while(1) {
             cout << "Ingrese su dia de cumplea" << n << "os" << endl;
@@ -47,7 +43,8 @@ void find(Cumples nuevoCumple[8], int mes) {
     for(int i = 0; i < 8; i++) {
         if(nuevoCumple[i].mes == mes) {
             cout << "\tNombre: " << nuevoCumple[i].nombre << endl;
-            cout << "\tDia: " << nuevoCumple[i].dia << endl;
+            cout << "\tDia: " << nuevoCumple[i].dia << endl; //se le pide al usuario ingresar un mes de los existentes y si encuentra alguna de 
+            //las personas ingresadas con el mismo mes que el ingresado, lo imprime
             cout << "\tMes: " << nuevoCumple[i].mes << endl;
             cout << "\tA"<< n << "o: " << nuevoCumple[i].year << endl;
             cont++;
@@ -60,7 +57,8 @@ int main(void) {
     Cumples nuevoCumple[8];
     char n = 164;
     int choice;
-    initialize(nuevoCumple);
+    initialize(nuevoCumple); //se le pide al usuario ingresar datos de 8 personas y luego se le pide ingresar un mes para mostrarle las personas que nacieron
+    //en dicho mes
     while(1) {
         cout << "Ingrese un mes de cumplea" << n << "os (o 0 para terminar)" << endl;
         cin >> choice;
