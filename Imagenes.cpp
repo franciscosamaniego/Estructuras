@@ -8,7 +8,7 @@ struct Imagen {
     double size;
 };
 
-void imprimirImagen(Imagen nuevaImagen[100], int cantI) {
+void imprimirImagen(Imagen nuevaImagen[700], int cantI) {
     char n = 164;
     for(int i = 0; i < cantI; i++) {
         cout << "Imagen numero " << i+1 << endl;
@@ -16,7 +16,7 @@ void imprimirImagen(Imagen nuevaImagen[100], int cantI) {
     }
 }
 
-int ingresarImagen(Imagen nuevaImagen[100], int cont) {
+int ingresarImagen(Imagen nuevaImagen[700], int cont) {
     char nombre[100];
     int alto, ancho;
     double size;
@@ -37,7 +37,7 @@ int ingresarImagen(Imagen nuevaImagen[100], int cont) {
     return cont;
 }
 
-void buscarImagen(Imagen nuevaImagen[100], int cantC) {
+void buscarImagen(Imagen nuevaImagen[700], int cantC) {
     string choice;
     bool encontrado = 0;
     char n = 164;
@@ -57,7 +57,7 @@ void buscarImagen(Imagen nuevaImagen[100], int cantC) {
 }
 
 int main(void) {
-    Imagen nuevaImagen[100];
+    Imagen nuevaImagen[700];
     int cantC = 0, choice;
     while(1) {
     cout << "Bienvenido a tu galeria, que quiere hacer?" << endl;
