@@ -47,9 +47,9 @@ void buscarImagen(Imagen nuevaImagen[700], int cantC) {
         if(nuevaImagen[i].nombre.find(choice) != string::npos) {
             cout << "Imagen encontrada. Es la numero " << i+1 << endl;
             cout << "Nombre: " << nuevaImagen[i].nombre << endl;
-            cout << "ancho: " << nuevaImagen[i].ancho << endl;
-            cout << "alto: " << nuevaImagen[i].alto << endl;
-            cout << "Tama" << n << "o: " << nuevaImagen[i].size << endl;
+            cout << "ancho: " << nuevaImagen[i].ancho << "Px" << endl;
+            cout << "alto: " << nuevaImagen[i].alto << "Px" << endl;
+            cout << "Tama" << n << "o: " << nuevaImagen[i].size << "Kb" << endl;
             encontrado = 1;
         }
     }
