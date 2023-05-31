@@ -56,7 +56,7 @@ void imprimirDatos(Datos nuevoingreso[50], int cant) {
 int ingresarDatos(Datos nuevoingreso[50]){
     string nombre, direccion;
     int telefono,edad, cant = 0;
-    while(cant < 3) {
+    while(cant < 50) {
         cout << "Ingrese su nombre" << endl;
         getline(cin,nombre);
         if(nombre.empty()) break;
