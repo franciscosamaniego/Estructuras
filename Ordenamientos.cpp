@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits.h>
 
 using namespace std;
 
@@ -17,13 +18,14 @@ void print(int a[7]) {
 void bubble(int a[], int n) {
   for (int i = 0; i < n; i++) {
     for(int j = 0; j < n-1; j++) {
-        print(a);
       if(a[j] > a[j+1]) {
+        print(a);
         int temp = a[j];
         a[j] = a[j+1];
         a[j+1] = temp;
       }
     }
+    
   }
 }
 
@@ -31,11 +33,11 @@ void bubble(int a[], int n) {
 void sort(int a[], int aux[], int lo, int hi) {
   if(hi - lo <= 1) return;
   int mid = lo + (hi - lo) / 2;
+  print(aux);
   sort(a,aux,lo,mid);
   sort(a,aux,mid,hi);
   int i = lo;
   int j = mid;
-  print(aux);
   for(int k = lo; k < hi; k++) {
     if(i == mid)         aux[k] = a[j++];
     else if(j == hi)     aux[k] = a[i++];
@@ -53,12 +55,12 @@ void selec(int a[], int n) {
     int min = INT_MAX;
     int cont;
     for(int j = i; j < n; j++ ) {
-        print(a);
       if(a[j] < min) {
         min = a[j];
         cont = j;
       }
     }
+    print(a);
     swap(a,i,cont,min);
   }
 }
@@ -88,18 +90,21 @@ int main(void) {
             sort(aux,auxi,0,7);
             cout << endl;
             print(aux);
+            cout << endl;
             break;
             case 2:
             initialize(a,aux);
             selec(aux,7);
             cout << endl;
             print(aux);
+            cout << endl;
             break;
             case 3:
             initialize(a,aux);
             bubble(aux,7);
             cout << endl;
             print(aux);
+            cout << endl;
             break;
             case 4:
             return 1;
