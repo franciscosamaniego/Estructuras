@@ -10,13 +10,11 @@ void swap(int a[], int b, int c) {
 }
 
 
-void bubble(char *a[], int n) {
+void bubble(int a[], int n) {
   for (int i = 0; i < n; i++) {
     for(int j = 0; j < n-1; j++) {
-      if(strcmp(a[j], a[j+1]) > 0) {
-        char *temp = a[j];
-        a[j] = a[j+1];
-        a[j+1] = temp;
+      if(a[j] > a[j+1]) {
+        swap(a,j,j+1);
       }
     }
   }
@@ -24,7 +22,7 @@ void bubble(char *a[], int n) {
 
 
 int main (void) {
-    char *n[5];
+    int n[5];
     for(int i = 0; i < 5; i++) {
         cout << "Ingrese un numero" << endl;
         cin >> n[i];
