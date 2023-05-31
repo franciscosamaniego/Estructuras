@@ -1,7 +1,7 @@
 #include <iostream>
 
 using namespace std;
-
+//estructura con los datos de las personas
 struct Datos {
     string nombre;
     string direccion;
@@ -14,7 +14,8 @@ void buscarEdad(Datos nuevoingreso[50], int cant) {
     cout << "Ingrese la edad que quiere buscar" << endl;
     cin >> choice;
     int cont = 0;
-    for(int i = 0; i < cant; i++) {
+    for(int i = 0; i < cant; i++) { //en esta parte busca en todos los datos ingresados y con la edad ingresada por el ususario si hay coincidencias
+    //y si las hay imprime quienes son y si no le avisa al usuario que no hay nadie con esa edad
         if(nuevoingreso[i].edad == choice) {
         cout << "\tNombre: " << nuevoingreso[i].nombre << endl;
         cout << "\tDireccion: " << nuevoingreso[i].direccion << endl;
@@ -31,7 +32,9 @@ void buscarinicial(Datos nuevoingreso[50], int cant) {
     cout << "Ingrese la inicial que quiere buscar" << endl;
     cin >> choice;
     int cont = 0;
-    if(choice >= 'a' && choice <= 'z') choice-=32;
+    if(choice >= 'a' && choice <= 'z') choice-=32; //en esta parte si el caracter que ingreso es minuscula lo pase a mayuscula
+    //Luego, si la inicial de los nombres ingresados es igual al caracter ingresado por el usario, se imprime este mismo y si no hay ninguno 
+    //se le avisa al ususario
     for(int i = 0; i < cant; i++) {
         if(nuevoingreso[i].nombre[0] == choice) {
         cout << "\tNombre: " << nuevoingreso[i].nombre << endl;
@@ -45,7 +48,7 @@ void buscarinicial(Datos nuevoingreso[50], int cant) {
 }
 
 void imprimirDatos(Datos nuevoingreso[50], int cant) {
-    for(int i = 0; i < cant; i++) {
+    for(int i = 0; i < cant; i++) { //funcion para imprimir todos los datos ingresados
         cout << "\tNombre: " << nuevoingreso[i].nombre << endl;
         cout << "\tDireccion: " << nuevoingreso[i].direccion << endl;
         cout << "\tTelefono: " << nuevoingreso[i].telefono << endl;
@@ -56,7 +59,8 @@ void imprimirDatos(Datos nuevoingreso[50], int cant) {
 int ingresarDatos(Datos nuevoingreso[50]){
     string nombre, direccion;
     int telefono,edad, cant = 0;
-    while(cant < 50) {
+    while(cant < 50) { //en esta parte se le pide al usuario ingresar 50 personas con su nombre, sin que este este vacio, su direccion, que tampoco
+        //este vacio, su telefono, que tenga 8 numeros, y su edad, qe tenga coherencia
         cout << "Ingrese su nombre" << endl;
         getline(cin,nombre);
         if(nombre.empty()) break;
@@ -82,7 +86,7 @@ int ingresarDatos(Datos nuevoingreso[50]){
 
 
         Datos datos = {nombre,direccion,telefono,edad};
-        nuevoingreso[cant] = datos;
+        nuevoingreso[cant] = datos; //con este parte se guarda los datos ingresados en la estructura
         cant++;
         cin.ignore();
     }
@@ -96,7 +100,8 @@ int main(void) {
     while(1) {
         cout << "1)Mostrar todos los nombres" << endl;
         cout << "2)Mostrar los nombres segun la edad" << endl;
-        cout << "3)Mostrar los nombres segun su inicial" << endl;
+        cout << "3)Mostrar los nombres segun su inicial" << endl; //en esta parte se le ofrece al usuario diversas opciones que apareceran luego de ingresar
+        //las 50 personas
         cout << "4)Salir" << endl;
         cin >> choice;
         switch (choice)
