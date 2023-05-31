@@ -4,7 +4,7 @@ using namespace std;
 
 struct Datos {
     string nombre;
-    string apellido;
+    string apellido; //estructura para guardar los datos
     int edad;
 };
 
@@ -12,7 +12,8 @@ void imprimirDatos(Datos nuevosDatos[100], int cantD) {
     for(int i = 0; i < cantD; i++) {
         cout << "Persona " << i+1 << endl;
         cout << "Nombre: " << nuevosDatos[i].nombre << ", ";
-        cout << "Apellido/s: " << nuevosDatos[i].apellido << ", ";
+        cout << "Apellido/s: " << nuevosDatos[i].apellido << ", "; //funcion que imprime todas las personas ingresadas con sus datos
+        //uno al lado del otro separado por una ,
         cout << "Edad: " << nuevosDatos[i].edad << endl;
     }
 }
@@ -23,7 +24,7 @@ int ingresarDatos(Datos nuevosDatos[100], int cantD) {
     cout << "Ingrese su nombre" << endl;
     getline(cin,nombre);
 
-    cout << "Ingrese su apellido" << endl;
+    cout << "Ingrese su apellido" << endl; //esta funcion le pide al usuario ingresar los datos de la persona, el nombre, el apellido y la edad
     getline(cin,apellido);
 
     cout << "Ingrese su edad" << endl;
@@ -44,7 +45,7 @@ int main(void) {
     cout << "Bienvenido. Que desea hacer?" << endl;
     while(1) {
         cout << "1)Ingresar datos" << endl;
-        cout << "2)Ver datos" << endl;
+        cout << "2)Ver datos" << endl; //esta parte se encarga de mostrarle al usuario opciones para ingresar los datos y para ver los datos
         cout << "3)Salir" << endl;
         cin >> choice;
         cin.ignore();
