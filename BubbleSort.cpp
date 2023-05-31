@@ -25,7 +25,7 @@ void bubble(int a[], int n) {
 int main (void) {
     int n[5];
     for(int i = 0; i < 5; i++) {
-        cout << "Ingrese un numero" << endl;
+        cout << "Ingrese un numero" << endl; //inicializacion de datos
         cin >> n[i];
     }
     bubble(n,5);
