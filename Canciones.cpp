@@ -64,7 +64,7 @@ int borrarcancion(Cancion nuevaCancion[100], int cantC) {
     int choice;
     cout << "De las "<< cantC << " canciones,cual quiere borrar?" << endl;
     cin >> choice;
-    if(choice > 0 && choice < cantC) {
+    if(choice > 0 && choice-1 < cantC) {
         for(int i = choice-1; i < cantC; i++) {
             nuevaCancion[i] = nuevaCancion[i+1]; 
         }
@@ -104,7 +104,6 @@ int ingresarCancion(Cancion nuevaCancion[100], int cont, Duracion nuevaDuracion[
         continue;
     }
     cout << "Ingrese el nombre de la cancion" << endl;
-    cin.ignore();
     getline(cin,nombreC);
     if(nombreC.empty()) {
         cout << "Tiene que ingresar un nombre" << endl;
@@ -112,10 +111,6 @@ int ingresarCancion(Cancion nuevaCancion[100], int cont, Duracion nuevaDuracion[
     }
     else break;
     }
-    cin.ignore();
-    cout << "Ingrese el nombre de la cancion" << endl;
-    getline(cin,nombreC);
-
     while(1) {
     int correcto = 0;
     cout << "Ingrese los minutos de duracion de la cancion" << endl;
@@ -146,7 +141,7 @@ int ingresarCancion(Cancion nuevaCancion[100], int cont, Duracion nuevaDuracion[
     Cancion cancion = {musico,nombreC,duracion,size};
     nuevaCancion[cont] = cancion;
     cont++;
-
+    cin.ignore();
     return cont;
 }
 
@@ -198,9 +193,11 @@ int main(void) {
         buscarcancion(nuevaCancion,cantC);
         break;
         case 4:
+        if(cantC == 0) {cout << "No hay canciones para borrar" << endl;break;}
         cantC = borrarcancion(nuevaCancion,cantC);
         break;
         case 5:
+        if(cantC == 0) {cout << "No hay canciones para modificar" << endl;break;}
         modificarCancion(nuevaCancion,cantC);
         break;
         case 6:
